@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            color: black;
+            font-weight: bold;
+        }
+
+        a {
+            display: block;
+            line-height: 50px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        #line {
+            display: block;
+            width: 2px;
+            height: 100%;
+            background-color: red;
+            position: absolute;
+            left: 198px;
+        }
+
+        div {
+            position: absolute;
+            width: 400px;
+            height: 200px;
+            left: 200px;
+
+        }
+
+        #div1 {
+            top: 100px;
+            background-image: linear-gradient(red, yellow);
+        }
+
+        #div2 {
+            top: 450px;
+            background-image: linear-gradient(yellow, red);
+        }
+
+        span {
+            display: block;
+            position: absolute;
+            top: 350px;
+            width: 100px;
+            height: 50px;
+            background-color: yellowgreen;
+            cursor: pointer;
+        }
+
+        #span1 {
+            left: 250px;
+        }
+
+        #span2 {
+            left: 450px;
+        }
+    </style>
+</head>
+
+<body>
+    <li id="line"></li>
+    <div id="div1">
+        可以多点
+    </div>
+    <div id="div2">
+        不可以多点
+    </div>
+    <span id="span1">
+        <a href="javascript:;">可以多点</a>
+    </span>
+    <span id="span2">
+        <a href="javascript:;">不可以多点</a>
+    </span>
+</body>
+<script>
+    var div1 = document.getElementById('div1')
+    var div2 = document.getElementById('div2')
+    var span1 = document.getElementById('span1')
+    var span2 = document.getElementById('span2')
+
+    span1.onclick = function () {
+        setInterval(function () {
+            var left = parseInt(window.getComputedStyle(div1, null).left)
+            var newLeft = left + 10
+            div1.style.left = newLeft + 'px'
+        }, 1000)
+    }
+
+
+    span2.addEventListener('click', clcik)
+
+    function clcik() {
+        var nana = setInterval(function () {
+            console.log(this);
+            span2.removeEventListener('click', clcik)
+            // this.removeEventListener('click', clcik)    //this 回来是window
+            var left = parseInt(window.getComputedStyle(div2, null).left)
+            var newLeft = left + 10
+            div2.style.left = newLeft + 'px'
+            if (left > 500) {
+                clearInterval(nana)
+            }
+        }, 1000)
+    }
+
+
+    function aa(aaa, bbb) {
+        var a = aaa;
+        var b = bbb;
+        console.log(a, b);
+    }
+    aa(111, 222)
+</script>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>枚举中的属性</title>
+	<script>
+		var obj = {
+			name : "廖家嘉",
+			age : "17",
+			gender:"男",
+			address:"广东"
+		}
+		//枚举对象中的属性
+		//使用for...in语句
+		/*
+		语句
+			for(var 变量 in 对象){
+	
+			}
+		for...in语句对象中有几个属性，循环体就会执行几次
+		每次执行时，会将对象的一个属性名赋值给变量
+		 */
+		
+		for (var key in obj){
+			console.log(key);
+			console.log(obj[key]);
+		}
+		
+	</script>
+</head>
+<body>
+
+</body>
+</html>

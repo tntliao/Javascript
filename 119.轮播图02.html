@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: blanchedalmond;
+        }
+
+        img {
+            width: 500px;
+        }
+
+        #outer {
+            width: 520px;
+            height: 281px;
+            background-color: aquamarine;
+            position: relative;
+            margin: 0 auto;
+            overflow: hidden;
+
+        }
+
+        #imgList {
+            list-style: none;
+            position: absolute;
+
+        }
+
+        #imgList li {
+            float: left;
+            margin: 0 10px;
+        }
+
+        #imgDiv {
+            position: absolute;
+            bottom: 5px;
+            list-style: none;
+            left: 15px;
+        }
+
+        #imgDiv a {
+            float: left;
+            display: block;
+            width: 15px;
+            height: 15px;
+            margin: 0 5px;
+            background-color: red;
+            opacity: 0.5;
+        }
+
+        #imgDiv a:hover {
+            background-color: black
+        }
+    </style>
+    <script src="js/tools.js"></script>
+    <script>
+        window.onload = function () {
+            // 获取imgList
+            var imgList = document.getElementById('imgList');
+            // 获取页面中所有的img标签
+            var imgArr = document.getElementsByTagName('img');
+            // 设置imgList的宽度
+            imgList.style.width = imgArr.length * 520 + 'px';
+            //获取navDiv
+            var imgDiv = document.getElementById('imgDiv');
+            // 获取outer
+            var outer = document.getElementById('outer');
+            // 设置imgDiv的宽值
+            imgDiv.style.width = imgArr.length * 25 + 'px';
+            // 设置导航栏按钮居中
+            imgDiv.style.left = (outer.offsetWidth - imgDiv.offsetWidth) / 2 + 'px';
+
+            // 显示默认图片的索引
+            var index = 0;
+            //获取所有的a
+            var allA = document.getElementsByTagName('a');
+            // 默认选中的a背景颜色为黑色
+            allA[index].style.backgroundColor = 'black';
+
+            //为所有的a添加单击响应函数
+            for (var i = 0; i < allA.length; i++) {
+                // 每循环一个，为它们添加标记
+                allA[i].num = i;
+                allA[i].onclick = function () {
+                    // 当那个a单击,索引就是那个a的标志
+                    index = this.num;
+                    /*
+                        切换图片
+
+                        第一张 0 0 
+                        第二张 1 -520
+                        第三张 2 -1040
+                     */
+                    // imgList.style.left = this.num * -520 + 'px';
+                    //修改我们正在选择的a
+                    allA[index].style.backgroundColor = 'black';
+                    //为a设置背景
+                    setA();
+
+                    move(imgList, 'left', index * -520, 10, function () {
+                        autoChange();
+                    });
+                };
+            };
+
+            autoChange();
+
+
+            //创建一个方法用来选择所有的a
+            function setA() {
+
+                //判断当前索引是否是最后一张图片
+                if (index >= imgArr.length - 1) {
+                    //则将index设置为0
+                    index = 0;
+
+                    //此时显示的最后一张图片，而最后一张图片和第一张是一摸一样
+                    //通过CSS将最后一张切换成第一张
+                    imgList.style.left = 0;
+                }
+
+                for (var i = 0; i < allA.length; i++) {
+                    // 设置所有的a背景颜色为红色
+                    allA[i].style.backgroundColor = '';
+                }
+                // 如果设置索引a的背景颜色为黑色
+                console.log(allA);
+                allA[index].style.backgroundColor = 'black';
+            };
+
+            var timer;
+            function autoChange() {
+                timer = setInterval(function () {
+                    index++;
+                    move(imgList, 'left', -520 * index, 10, function () {
+                        setA();
+                    });
+                }, 2500);
+            }
+
+
+        };//window.onload
+    </script>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="imgList">
+            <li><img src="img/1.jpg" alt=""></li>
+            <li><img src="img/2.jpg" alt=""></li>
+            <li><img src="img/3.jpg" alt=""></li>
+            <li><img src="img/4.jpg" alt=""></li>
+            <li><img src="img/1.jpg" alt=""></li>
+
+        </div>
+        <div id="imgDiv">
+            <li><a href="javascript:;"></a></li>
+            <li><a href="javascript:;"></a></li>
+            <li><a href="javascript:;"></a></li>
+            <li><a href="javascript:;"></a></li>
+        </div>
+    </div>
+</body>
+
+</html>

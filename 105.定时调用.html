@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        window.onload = function () {
+            var count = document.getElementById('count');
+
+            // 使用count中的内容，自动切换
+            /*
+                JS的程序执行速度非常快
+                如果希望一段程序，可以每间隔一段事件执行一次，可以使用定时调用
+             
+             */
+
+            // for (var i = 0; i < 10; i++) {
+            //     count.innerHTML = i;
+            //     alert('nihao');
+            // }
+
+            for (var i = 0; i < 100; i++) {
+                var timer = setInterval(function () {
+                    count.innerHTML = i;
+                    if(i == 20){
+                        clearInterval(timer);
+                    }
+                }, 1000);
+            }
+
+            /*
+                setInterval()
+                    - 定时调用
+                    - 可以将一个函数每隔一段事件执行一次
+                    - 参数：
+                        1.回调函数，该函数每隔一段时间被调用一次
+                        2.每次调用间隔的时间，单位是毫秒
+             */
+            // var num = 1;
+            // var time = setInterval(function () {
+            //     count.innerHTML = num++;
+            //     if (num == 20) {
+            //         clearInterval(time);
+            //     };
+            // }, 1000);
+
+            // console.log(time);
+
+            // clearInterval()可以用来关闭一个定时器
+            // 方法中需要一个定时器的表示作为参数，这样将关闭标识对于的定时器
+
+            // clearInterval(time);
+        }
+    </script>
+</head>
+
+<body>
+    <h1 id="count"></h1>
+</body>
+
+</html>

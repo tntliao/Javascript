@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>demo-12</title>
+</head>
+<body>
+<p>全局变量在任何脚本函数均可访问</p>
+<p id="demo"></p>
+<script>
+	var carName ="Volvo";
+	myFunction();
+	function myFunction(){
+		document.getElementById('demo').innerHTML = "我可以显示" + carName;
+	}
+</script>
+</body>
+</html>

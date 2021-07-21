@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>demo-28</title>
+</head>
+
+<body>
+	<script>
+		var d = new Date();
+		var time = d.getHours();
+		// if(time<10)
+		// {
+		// 	document.write("<b>早上好</b>");
+		// }
+		// else if(time>=10 && time<20)
+		// {
+		// 	document.write("<b>中午好</b>");
+		// }
+		// else{
+		// 	document.write("<b>晚上好！<b>");
+		// }
+
+		if (time < 10) {
+			document.write("<b>早上好<b>");
+		}
+		//时间>=10 且 时间 <20
+		else if (time >= 10 && time < 20) {
+			document.write("<b>中午好<b>");
+		}
+		else {
+			document.write("<b>晚上好</b>");
+		}
+	</script>
+	<p>这个例子演示了if..else if...else语句</p>
+</body>
+
+</html>

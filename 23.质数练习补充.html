@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>质数补充联系</title>
+	<script>
+		//测试如下程序的性能
+		//在程序执行前，开始监视器
+		console.time("test");
+		for (var i = 2; i <= 100; i++) {
+			var flag = true;
+			for (var j = 2; j <= Math.sqrt(i); j++) {
+				//余数等于?0
+				if (i % j == 0) {
+					flag = false;
+					break;
+				}
+			}
+			if (flag) {
+				document.write(i + " ");
+			}
+		}
+		// var result = Math.sqrt(j)
+		//程序
+		console.timeEnd("test");
+	</script>
+</head>
+
+<body>
+
+</body>
+
+</html>

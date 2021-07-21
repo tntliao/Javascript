@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>demo-32</title>
+</head>
+<body>
+<p>点击按钮循环代码5次。</p>
+<button onclick="myFunction()">点击按钮</button>
+<p id="demo"></p>
+<script>
+	function myFunction(){
+		var x = "";
+	for (var i=0;i<5;i++){
+		x=x + "该数字为" + i +"<br>";
+	}
+	document.getElementById('demo').innerHTML=x;
+	}
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+* {
+  padding: 0;
+  margin : 0;
+}
+
+body {
+  width : 600px;
+  margin: 0 auto;
+}
+
+button {
+  width     : 250px;
+  margin-top: 10px;
+}
+
+.right {
+  width           : 300px;
+  height          : 370px;
+  background-color: yellowgreen;
+  text-align      : center;
+  float           : right;
+}
+
+.left {
+  width           : 300px;
+  height          : 300px;
+  background-color: yellowgreen;
+  text-align      : center;
+  float           : left;
+}
+
+p {
+  margin-top: 10px;
+}
+
+#city li,
+#game li,
+#phone li {
+  margin-top      : 8px;
+  margin-left     : 10px;
+  background-color: green;
+  list-style      : none;
+  float           : left;
+}
+
+.select {
+  width           : 300px;
+  height          : 70px;
+  background-color: green;
+  float           : left;
+}
+
+#pp {
+  margin-left: 10px;
+  display    : inline;
+}
+
+#username {
+  margin-left: 10px;
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box2 {
+            width: 1000px;
+            height: 500px;
+            background-color: yellowgreen;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        #box1 {
+            width: 50px;
+            height: 50px;
+            /* background-image: url(E:/照片/favicon.ico); */
+            background-color: red;
+            position: absolute;
+            top: 200px;
+            left: 200px;
+        }
+
+        #box3 {
+            width: 50px;
+            height: 50px;
+            background-color: green;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            // 获取box1 和 box2
+            var box1 = document.getElementById('box1');
+            var box2 = document.getElementById('box2');
+            var box3 = document.getElementById('box3');
+
+
+            // 随机生成0-100数字
+            var random1 = Math.round(Math.random() * 950);
+            var random2 = Math.round(Math.random() * 450);
+
+
+            //设置box3的随机位置
+            box3.style.left = random1 + 'px';
+            box3.style.top = random2 + 'px';
+
+            //定义一个变量，来表示移动的速度
+            var speed = 3;
+            // 设置默认方向
+            var dir = 39;
+            
+            setInterval(function () {
+
+                switch (dir) {
+                    case 37:
+                        box1.style.left = box1.offsetLeft - speed + 'px';
+                        break;
+                    case 38:
+                        box1.style.top = box1.offsetTop - speed + 'px';
+                        break;
+                    case 39:
+                        box1.style.left = box1.offsetLeft + speed + 'px';
+                        break;
+                    case 40:
+                        box1.style.top = box1.offsetTop + speed + 'px';
+                        break;
+                }
+
+
+                // console.log('红色' + box1.offsetLeft,box1.offsetTop);
+                // console.log('绿色' + random1,+" "+random2);
+
+                if (box1.offsetLeft > box2.clientWidth - 50) {
+                    location.reload();
+                } else if (box1.offsetLeft < 0) {
+                    // alert('右边撞墙了');
+                    location.reload();
+                } else if (box1.offsetTop > box2.offsetHeight) {
+                    // alert('下边撞墙了');
+                    location.reload();
+                } else if (box1.offsetTop < 0) {
+                    // alert('上边撞墙了');
+                    location.reload();
+                }
+            }, 30)
+            document.onkeydown = function (event) {
+
+                event = event || window.event;
+
+                // 当用户按了ctrl以后，速度加快
+                // if (event.ctrlKey) {
+                //     speed = 30;
+                // } else { 
+                //     speed = 10;
+                // }
+                dir = event.keyCode;
+            };
+            //松开按键失去方向
+            // document.onkeyup = function () {
+            //     dir = 0;
+            // }
+            console.log(box3.style.left);
+        };
+    </script>
+</head>
+
+<body>
+    <div id="box2">
+        <div id="box1"></div>
+        <div id="box3"></div>
+    </div>
+</body>
+
+</html>

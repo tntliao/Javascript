@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>对象字面量</title>
+	<script>
+		/*
+		使用对象字面量，可以去创建对学生时，直接指定对象中的属性
+		语法：{属性名：属性值,属性名：属性值...}
+		对象字面量的属性名可以加引号也可以不加，建议不加
+		如果使用一些奇怪的名字，则必须加引号
+
+		属性名和属性值是一组一组的名值对结构
+			名和值直接使用：连接，多个名值之间使用，隔开
+			如果一个属性之后没有其他的属性了，就不要写了
+		 */
+
+		var obj2 = {
+			"name": "廖家嘉",
+			age: 28,
+			gender: "男",
+			test: {
+				jiajia: "jiaajia"
+			}
+		}
+
+		// console.log(obj2);
+		console.log(obj2.test.jiajia);
+	</script>
+</head>
+
+<body>
+
+</body>
+
+</html>

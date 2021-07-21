@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+            position: absolute;
+            left: 0px;
+        }
+        #box2{
+            height: 1000px;
+            border: 1px solid red;
+            position: absolute;
+            left: 800px;
+            top: 0;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var btn01 = document.getElementById('btn01');
+            var box1 = document.getElementById('box1');
+
+            /*
+                定义一个函数，用来获取指定元素的当前样式 
+                    参数：
+                        obj 要获取样式的元素
+                        name 要获取的样式名
+             */
+            function getStyle(obj, name) {
+                if (window.getComputedStyle) {
+                    // 正常浏览器的方式，具有getComputedStyle()方法
+                    return window.getComputedStyle(obj, null)[name];
+                } else {
+                    //IE8的方式,没有getComputedStyle()方法
+                    return obj.currentStyle[name];
+                }
+            }
+
+            var timer;
+            btn01.onclick = function () {
+
+                clearInterval(timer);
+
+                timer = setInterval(function () {
+
+                    // 获取新值
+                    var oldValue = getStyle(box1, 'left');
+                    // 在旧值上加上新值
+                    var newValue = parseInt(oldValue) + 1;
+                    // console.log(newValue);
+                    // 将新值设置给box1
+                    box1.style.left = newValue + 'px';
+
+                    if (newValue > 800) {
+                        newValue = 800;
+                    }
+                    if (newValue === 800) {
+                        clearInterval(timer);
+                    }
+                    console.log(newValue);
+                }, 30);
+
+            };
+        };
+
+    </script>
+</head>
+
+<body>
+    <button id="btn01">向右移动</button>
+    <br><br>
+    <div id="box1"></div>
+    <div id="box2"></div>
+</body>
+
+</html>

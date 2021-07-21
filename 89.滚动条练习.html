@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #info {
+            width: 190px;
+            height: 250px;
+            background-color: yellowgreen;
+            overflow: auto;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            /*
+                当垂直滚动条滚动到底时表单项可用 
+                onscroll
+                    - 该事件会在滚动条滚动时触发
+             */
+            var info = document.getElementById('info');
+            var inputs = document.getElementsByTagName('input');
+
+            // 为info绑定一个滚动条事件
+            info.onscroll = function () {
+
+                // if(info.scrollHeight - info.scrollTop == info.clientHeight){
+                //     alert('nihao');
+                // }
+                    // console.log(this.scrollHeight)
+                if (parseInt(this.clientHeight + this.scrollTop) == parseInt(this.scrollHeight)) {
+                    console.log(1);
+                    inputs[0].disabled = false;
+                    inputs[1].disabled = false;
+                }
+
+                // alert(info.clientHeight);    
+                // alert(info.scrollHeight);
+                // alert(info.scrollTop);
+
+                // inputs[0].disabled = false;
+                // inputs[1].disabled = false;
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>请认真阅读以下相关事项！</h1>
+    <p id="info">
+        书中的主人公名为祥子，他生活在一个低层街区，无论如何努力都不能更上一层楼，却依旧在这个城市里做着一个善良守本的车夫。然而最后却因为多次遭到生活的打击，由一个善良的车夫变成了“人不人鬼不鬼”的可怜虫。
+
+        我印象最深的便是刘四说祥子是个臭拉车的，可只能怪祥子没个便利的嘴。
+
+        这本书控诉了黑暗的旧社会对劳动者的剥削与压迫，表现出了对劳动人民的深切同情。
+
+        如果拿一个人怎么努力都不能幸福的社会与现代社会相比，或许我们的现在便是不幸。
+
+        祥子虽说是不幸的，可我如果就是祥子，我可能老早就在书里消失了吧。我已经是万幸了，出生在一个富强的国家，生活在一个和平的年代，又有什么理由不好好的读书，不珍惜时间？
+
+        “书籍是人类进步的阶梯。”或许，这本书已经在潜移默化地影响我。我也推荐你去看这本书，相信你一定会从中受益匪浅的。
+    </p>
+    <!-- 如果为表单项添加disabled = 'disabled' 则表单变成禁用状态 -->
+    <input type="checkbox" disabled='disabled'>同意相关事项
+    <input type="button" value="Sumbit" disabled='disabled'>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>return</title>
+	<script>
+		function fun() {
+			alert("函数执行");
+			for (var i = 0; i < 5; i++) {
+
+				if (i == 2) {
+					//使用break可以退出当前循环
+					//break;
+
+					//continue用跳过当次循环
+					//continue;
+
+					//使用return可以结算整个函数
+					// return;
+				}
+				console.log(i);
+			}
+			alert("函数执行完");
+		}
+		// fun();
+
+
+		function fun2() {
+			return 10;
+		}
+		var a = fun2();
+
+		// console.log(a);
+
+
+		function fun3() {
+			//在函数内部声明一个函数
+			function fun4() {
+
+				function fun5() {
+
+					alert("我是fun4!");
+
+				}
+				return fun5;
+			}
+
+			//将fun4函数对象作为返回值放回
+			return fun4;
+		}
+
+		// a = fun3();
+
+		// console.log(a);
+
+
+		fun3()()();
+
+	</script>
+</head>
+
+<body>
+
+</body>
+
+</html>

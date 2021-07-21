@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>对象</title>
+	<script>
+		/*
+		JS中数据对象
+			- String 字符串
+			- Number 数值
+			- Boolean 布尔值
+			- Null 空值
+			- Undefined 未定义
+				-以上这五种类型属于基本数据类型，以后我们看到的值只要不是上边的5种，全部都是对象
+			- Object 对象
+
+			如果使用基本数据类型的数据，我们所创建的变量都是独立，不能成为一个整体。
+
+			对象属于一种复合的数据类型，在对象中可以保存多个不同数据类型的属性
+
+			对象的分类
+				1.内建对象
+					- 由ES标准中定义的对象，在任何的ES的实习中都可以使用
+
+					- 比如，Math String Number Boolean Function oBject...
+
+				2.宿主对象
+					- 由JS的运行环境提供的对象，目前来讲主要由浏览器提供的对象
+
+					- 比如 BOM DOM
+
+				3.自定义对象
+					- 有开发人员子创建的对象
+
+		 */
+		//创建变量
+		/*
+			使用new关键词调用函数，是构成函数constructor
+			构成函数是专门用来调用创建的函数
+			使用typeof检查一个对象时，会返回object
+		 */
+		var obj = new Object();
+
+		/*
+		 向对象中保存的值成为属性
+		 向对象添加属性
+		 语法，对象.属性名 = 属性值
+		*/
+
+		//向obj中添加一个name属性
+		obj.name = "廖家嘉";
+		//向obj中添加一个gender属性
+		obj.gender = "男";
+		//向boj中添加一个age属性
+		obj.age = "17";
+		/*
+			读取对象中的属性
+			语法：对象.属性名
+		 */
+		console.log(obj.name + "!")
+
+	</script>
+</head>
+
+<body>
+
+</body>
+
+</html>

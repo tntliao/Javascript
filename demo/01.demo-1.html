@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8"> 
+<title>demo-01</title> 
+</head>
+<body>
+
+<p>点击这里来创建变量，并显示结果</p>
+<button onclick="myfunction()">点击这里</button>
+<button onclick="LIAO()">点击那块</button>
+
+<p id="liao"></p>
+<script>
+	function myfunction(){
+		var jiajia="廖家嘉";
+		document.getElementById('liao').innerHTML=jiajia;
+	}
+	function LIAO(){
+		var aa="廖大爷";
+		document.getElementById('liao').innerHTML="aa";
+	}
+</script>
+</body>
+</html>

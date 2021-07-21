@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>嵌套for循环</title>
+	<script>
+		//它可以用来控制图像高度
+		// for(var i=5;i>0;i--){
+		/*
+		在循环的内部在创建一个循环，用来空图形的宽度
+		目前我们的外部的for循环执行1次，内部的就会执行5次
+		内层循环可以来决定图像的宽带，执行几次图形的宽度就是多少
+		 */
+		// for(var j = 0; j < i; j++){
+		// 	document.write("*");
+		// }
+		//输出一个换行
+		// 	document.write("<br/>")
+		// }
+
+		for (var i = 0; i < 5; i++) {
+
+			for (var j = 0; j < i + 1 ; j++) {
+
+				document.write("*");
+				
+			}
+			document.write("<br>")
+		}
+	</script>
+</head>
+
+<body>
+
+</body>
+
+</html>

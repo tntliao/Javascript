@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>打印1-100质数</title>
+	<script>
+		/*
+		打印出1-100直接所有的质数
+		 */
+		//打印2-100之间所有数
+		for (var i = 2; i <= 100; i++) {
+
+			//创建一个布尔值，用来保存结果，默认i是质数
+			var flag = true;
+			//判断i是否是整数
+			//判断2-i之间所有的数
+			for (var j = 2; j < i; j++) {
+				//判断i知否能被j整除
+				if (i % j == 0) {
+					//如果进入判断证明i不是质数,修改flag值为false
+					flag = false;
+				}
+			}
+			if (flag) {
+				document.write(i + "</br>");
+			}
+		}
+	</script>
+</head>
+
+<body>
+
+</body>
+
+</html>

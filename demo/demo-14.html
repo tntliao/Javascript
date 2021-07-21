@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>demo-14</title>
+</head>
+
+<body>
+	<button onclick="getElementById('demo').innerHTML=Date()">现在的时间是？</button>
+	<p id="demo"></p>
+	<br>
+	<button onclick="this.innerHTML=Date()">现在的时间是？</button>
+	<br>
+	<p>点击按钮执行<em>displayDate()</em>函数.</p>
+	<button onclick="displayDate()">点击这里</button>
+	<script>
+		function displayDate() {
+			document.getElementById("liao").innerHTML = Date();
+		}
+	</script>
+	<p id="liao"></p>
+</body>
+
+</html>

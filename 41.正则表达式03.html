@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>正则表达式</title>
+	<script>
+		/*
+		 * 创建一个正则表达式检查一个字符串是否含有aaa
+		 */
+		// var reg = /aaa/;
+		/*
+		 * 量词
+		 * 	- 通过量词可以设置一个内容出现的次数
+		 * 	量词只对它前边的一个内容起作用
+		 * 	- {n} 正好出现n次
+		 * 	- {m,n} 出现m-n次
+		 * 	- {m,} 出现m次以上
+		 * 	- + 至少一个，相当于{1,}
+		 * 	- * 0个或多个，相当于{0,}
+		 * 	- ? 0个或1个，相当于{0,1}
+		 */
+		
+		//aaa
+		 var reg = /a{3}/;
+		
+		//ababab
+		var reg = /(ab){3}/;
+
+		//bbb
+		var reg = /b{3}/;
+
+		//b出现1-3次
+		var reg = /ab{1,3}c/;
+
+		//b出现3次以上
+		var reg = /ab{3,}c/;
+
+		//b出现1次以上
+		var reg = /ab+c/;
+
+		//b出现0或多个以上
+		var reg = /ab*c/;
+
+		//b出现0个或1个
+		var reg = /ab?c/;
+		// console.log(reg.test("abc"));
+		
+		/*
+		 * 检查一个字符串中是否以a开头
+		 *  ^ 表示开头
+		 *  $ 表示结尾
+		 */	
+		reg = /^a/;	//匹配开头的a
+
+		reg = /a$/;	//匹配结尾的a
+
+		/*
+		 * 如果正则表达式中同时使用^ $则要求字符串完全符合正则表达式
+		 */
+		reg = /^a$/;
+		// console.log(reg.test("dhjka"));
+		
+		/*
+		 * 创建一个正则表达式，用来检查一个字符串是否是一个合法手机号
+		 */
+		
+		var phoneStr = "13536361414";
+		phoneReg = /^1[3-9][0-9]{9}$/;
+		// console.log(phoneReg.gtest(phoneStr));
+
+		var email = "786601661@qq.com";
+		emailReg = /^[^0][0-9]{6,10}@qq\.com$/;
+		console.log(emailReg.test(email));
+	</script>
+</head>
+<body>
+
+</body>
+</html>

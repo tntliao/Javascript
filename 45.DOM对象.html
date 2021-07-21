@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOM对象</title>
+</head>
+<body>
+	<button ondblclick="fun()">我是一个按钮</button>
+	<p id="demo">廖家嘉</p>
+	<script>
+		/*
+		 * 浏览器已经为我们提供文档节点 对象这个对象是window属性
+		 * 	可以子啊页面中直接使用，文档节点代表的是整个网页
+		 */
+		// var btn = document.getElementById('btn');
+		// btn.innerHTML = "I'm button";
+		// console.log(btn);
+		function fun(){
+			document.getElementById("demo").innerHTML = "nihao廖家嘉";
+		}
+	</script>
+</body>
+</html>

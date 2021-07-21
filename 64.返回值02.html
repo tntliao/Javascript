@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>返回值</title>
+	<script>
+		/*
+			定义一个函数，判断一个数值是否是偶数，如果返回true，否则返回false
+		 */
+
+		function isOu(num) {
+			return num % 2 == 0;
+		}
+
+		// var result = isOu(2);
+
+		// console.log("result = "+result);
+
+		/*
+		定义一个函数，可以根据半径计算一个圆的面积，并放回计算结果
+
+		3.14 r*r
+		 */
+		function mianji(r) {
+
+			return 3.14 * r * r;
+
+		}
+
+		result = mianji(10);
+
+		// console.log("result = "+result);
+		/*
+		创建一个函数，可以在控制台输出一个人的信息
+		可以输出的name age gender address
+
+		实参可以是任意的数据类型，也可以是一个对象
+		当我们的参数过多是面积约将参数装到一个对象中，然后通过对象传递
+		 */
+		// function sayHello(name,age,gender,address){
+		// 	console.log("我是"+name+",今年我"+age+",我是一个"+gender+"孩子,"+"我住在"+address);
+		// }
+		// sayHello("廖家嘉","18","男","广东廉江");
+
+
+		// 创建一个sayHello的函数形参是liao
+		function sayHello(liao) {
+			console.log("我叫" + liao.name + ",今年我" + liao.age + ",我是一个" + liao.gender + "孩子," + "我住在" + liao.address);
+		};
+
+		//创建一个对象
+		var obj = {
+			name: "嘉佳",
+			age: 17,
+			gender: "男",
+			address: "广东廉江"
+		};
+
+		// 把sayHello执行传一个obj作为实参
+		sayHello(obj);
+		// function fun(a){
+		// 	console.log(a);
+		// }
+		// fun(mianji(102));
+		/*
+		mianji()
+		 */
+	</script>
+</head>
+
+<body>
+
+</body>
+
+</html>

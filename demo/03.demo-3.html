@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>demo-03</title>
+</head>
+<body>
+<p>假设 y=5，计算 x=y+2并显示结果</p>
+<button onclick="myFunction()">点击这里</button>
+<p id="demo"></p>
+
+<button onclick="LIAO()">点击这里</button>
+<p id="liao"></p>
+
+
+<script>
+	function myFunction(){
+		var y=5;
+		var x=y+2;
+		var demoP=document.getElementById('demo');
+		demoP.innerHTML= "i=" + x;
+	}
+	function LIAO(){
+		var a="ab";
+		var b=a+"cd";
+		document.getElementById('liao').innerHTML="jia="+b;
+	}
+</script>
+</body>
+</html>

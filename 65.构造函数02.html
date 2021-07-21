@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>构造函数02</title>
+	<script>
+		/*
+		创建一个Pre构造函数
+		 -在Per构造函数中，为每个对象都添加一个sayName方法
+		也是所有实例的sayName都是唯一的
+		这样就导致了构造函数执行一次就会创建一个新的方法
+			执行10000次就会创建10000给新方法，而10000个方法否是一模一样的
+			这是完全没必要，完全可以使用所有的对象共享同一个方法
+		 */
+		function Per(name, age) {
+			this.name = name;
+			this.age = age;
+			//向对象中添加一个方法
+			this.sayName = fun;
+		}
+		//将sayName方法在全局作用域中定义
+		function fun() {
+			alert("你好廖家嘉");
+		}
+		//创建一个Per的实例
+		var jjj = new Per("廖家嘉", "17");
+		var kkk = new Per("廖家家", "16");
+		console.log(jjj.name);
+		console.log(kkk.name);
+		jjj.sayName();
+		// console.log(new Per("AAA", "123"));
+		console.log(jjj.sayName == kkk.sayName);
+	</script>
+</head>
+
+<body>
+
+</body>
+
+</html>

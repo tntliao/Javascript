@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+            position: absolute;
+            left: 0px;
+            top: 50px;
+        }
+
+        #box2 {
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+            position: absolute;
+            left: 0px;
+            top: 200px;
+        }
+
+        #ii {
+            height: 1000px;
+            border: 1px solid red;
+            position: absolute;
+            left: 800px;
+            top: 0;
+        }
+    </style>
+    <script src="js/tools.js"></script>
+    <script>
+        window.onload = function () {
+            var btn01 = document.getElementById('btn01');
+            var btn03 = document.getElementById('btn03');
+
+            var btn02 = document.getElementById('btn02');
+            var btn04 = document.getElementById('btn04');
+
+
+            var box1 = document.getElementById('box1');
+            var box2 = document.getElementById('box2');
+
+            /*
+                定义一个函数，用来获取指定元素的当前样式 
+                    参数：
+                        obj 要获取样式的元素
+                        name 要获取的样式名
+             */
+            // function getStyle(obj, name) {
+            //     if (window.getComputedStyle) {
+            //         // 正常浏览器的方式，具有getComputedStyle()方法
+            //         return window.getComputedStyle(obj, null)[name];
+            //     } else {
+            //         //IE8的方式,没有getComputedStyle()方法
+            //         return obj.currentStyle[name];
+            //     }
+            // }
+
+            btn01.onclick = function () {
+                move(box1, 'left', 800, 10, function () {
+                    move(box1, 'left', 0, 10, function () {
+
+                    });
+                });
+            };
+            btn03.onclick = function () {
+                move(box1, 'left', 0, 10);
+            };
+
+            btn02.onclick = function () {
+                move(box2, 'width', 800, 10)
+            };
+            btn04.onclick = function () {
+                move(box2, 'width', 100, 10)
+            };
+            /*
+                参数：
+                    obj:要执行动画的对象
+                    attr：要执行动画的样式，比如left top width height
+                    target:执行动画的目标
+                    speed:移动的速度(正数向右移动，负数向左移动) 
+             */
+
+            //定义一个变量，用来保存定时器标识
+            // function move(obj, attr, target, speed, callback) {
+
+            //     //关闭上一个元素
+            //     clearInterval(obj.timer);
+            //     //获取元素目标的位置
+            //     var current = parseInt(getStyle(obj, attr));
+            //     // 判断速度的正负值
+            //     // 如果从0向800移动，则speed为正
+            //     // 如果从800向0移动，则speed为负
+            //     if (current > target) {
+            //         speed = -speed;
+            //     }
+
+            //     obj.timer = setInterval(function () {
+            //         console.log(speed);
+            //         // 获取新值
+            //         var oldValue = getStyle(obj, attr);
+            //         // 在旧值上加上新值
+            //         var newValue = parseInt(oldValue) + speed;
+            //         // console.log(newValue);
+            //         // 将新值设置给box1
+            //         obj.style[attr] = newValue + 'px';
+
+            //         if (speed < 0 && newValue <= target || speed > 0 && newValue >= target) {
+            //             newValue = target;
+            //         }
+            //         if (newValue === target) {
+            //             clearInterval(obj.timer);
+            //             callback && callback();
+            //         }
+            //     }, 30);
+            // }
+
+            var aa = window.getComputedStyle(btn01, null)['left'];
+            console.log(aa);
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <button id="btn01">box1右移动</button>
+    <button id="btn03">box1左移动</button>
+
+    <button id="btn02">box2变宽</button>
+    <button id="btn04">box2变短</button>
+
+    <br><br>
+    <div id="box1">
+        <span>box1</span>
+    </div>
+    <div id="box2">
+        <span>box2</span>
+    </div>
+
+    <div id="ii"></div>
+
+</body>
+
+</html>

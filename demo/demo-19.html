@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>demo-19</title>
+</head>
+<body>
+<p>设置 有=5，计算出 x=++y,并显示结果。</p>
+<button onclick="myFunction()">点我</button>
+<p id="demo"></p>
+<script>
+	function myFunction(){
+		var x=5;
+		var y=++x;
+		// var demoP=document.getElementById('demo')
+		// demoP.innerHTML="x" + x + ",y=" +y;
+		document.getElementById("demo").innerHTML="x=" + x + ",y=" +y;
+	}
+</script>
+<p><strong>注意：</strong>两个值 x 和 y都受到影响。</p>
+</body>
+</html>
